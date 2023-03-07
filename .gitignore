@@ -1,0 +1,8 @@
+/logs
+/bin
+/vendor
+
+*.logs
+*.swp
+
+*_test.go
