@@ -4,7 +4,7 @@ import (
 	"context"
 	"errors"
 
-	"github.com/brunoseba/event-management/internal/entity"
+	"github.com/brunoseba/event-api/internal/entity"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
