@@ -1,5 +1,7 @@
 # EJERCICIO BACKEND Servicio APi Rest con Go
 
+* [Documentacion](https://docs.google.com/document/d/1mCXhgkZkaZbGH-uIEKpoEFNx09bhcUH1ibr4Drtm2lM/edit?usp=sharing)
+
 Se realiza una aplicación web con una API  que le permita a una compañía interactuar con la interfaz de usuario. La aplicación permitirá a un administrador gestionar eventos (crear, eliminar o editar eventos), y los eventos tendrán un título, una breve descripción, una descripción detallada, una fecha y hora, un organizador, un lugar y un estado (borrador o publicado).
 
 ## Comenzando 🚀
@@ -104,3 +106,4 @@ _Herramientas que se utilizo para crear el proyecto_
 ## Autor ✒️
 
 * **Bruno Sebastian Riotorto**
+
