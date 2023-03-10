@@ -50,10 +50,11 @@ func (ec *EventController) CreateEventController(c *gin.Context) {
 
 func (ec *EventController) GetEvent(c *gin.Context) {
 	eventId := c.Param("id")
+	usertype := c.GetBool("enabled")
 
-	event, err := ec.eventUseCase.GetEvent(eventId)
+	event, err := ec.eventUseCase.GetEvent(eventId, usertype)
 	if err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"message": "Failed to get event id not found"})
+		c.JSON(http.StatusBadRequest, gin.H{"message": "Failed to get event id not found"})
 		return
 	}
 

@@ -21,6 +21,6 @@ func (ur *UserRouteController) UserRoute(rg *gin.RouterGroup) {
 
 	router.GET("/user", ur.userController.GetUser)
 	router.GET("/user/:id", ur.userController.GetUserIdController)
-	router.POST("/user", ur.userController.Register)
+	router.POST("/register", ur.userController.Register)
 	router.PUT("/user/update/:id", middleware.AuthUser(), ur.userController.UpdateUserController)
 }

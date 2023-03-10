@@ -17,11 +17,11 @@ func NewEventRouteController(eventController controller.EventController) EventRo
 func (er *EventRouteConstroller) EventRoute(rg *gin.RouterGroup) {
 	routes := rg.Group("/v1")
 
-	routes.GET("/event/:id", er.eventController.GetEvent)
-	routes.GET("/events/", er.eventController.GetAllEventController)
+	routes.GET("/event/:id", middleware.UserTypeMiddleware(), er.eventController.GetEvent)
+	routes.GET("/events/", middleware.AuthUser(), er.eventController.GetAllEventController)
 
 	routes.GET("/eventfilt", middleware.UserTypeMiddleware(), er.eventController.GetEventController)
-	routes.POST("/event", er.eventController.CreateEventController)
+	routes.POST("/event", middleware.AuthUser(), er.eventController.CreateEventController)
 	routes.PUT("/event/update/:id", middleware.AuthUser(), er.eventController.UpdateEventController)
 	routes.POST("/event/inscription", er.eventController.InscriptionUserEvent)
 	routes.GET("/eventsuser/:id", er.eventController.GetListEventsUserController)

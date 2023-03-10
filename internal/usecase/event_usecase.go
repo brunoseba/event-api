@@ -38,12 +38,16 @@ func (eu *EventUseCase) CreateEventService(event *entity.Event) (*entity.EventRe
 	return eventRes, nil
 }
 
-func (eu *EventUseCase) GetEvent(id string) (*entity.EventResponse, error) {
+func (eu *EventUseCase) GetEvent(id string, usertype bool) (*entity.EventResponse, error) {
+
 	event, err := eu.eventRepo.GetEventByID(id)
 	if err != nil {
 		return nil, err
 	}
 
+	if (!usertype) && (event.State == "borrador") {
+		return nil, errors.New("User type no authorized")
+	}
 	return event, nil
 }
 
