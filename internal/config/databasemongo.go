@@ -9,7 +9,7 @@ import (
 )
 
 func ConnectToMongoDB(ctx context.Context) (*mongo.Client, error) {
-	clientOptions := options.Client().ApplyURI("mongodb://127.0.0.1:27017")
+	clientOptions := options.Client().ApplyURI("mongodb://mongodb:27017")
 	client, err := mongo.NewClient(clientOptions)
 	if err != nil {
 		return nil, err
