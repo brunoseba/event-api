@@ -37,33 +37,68 @@ mongo --version
 ```
 
 
-### Instalación 🔧
+### Docker 🔧
+_Para correr el sistema con docker debe tener instalado docker en el sisttema_
 
+* Verificar corriendo el comando
 ```
-Da un ejemplo
-```
-
-_Y repite_
-
+docker -v 
 ```
 
+Luego de clonar el repositorio e ingrasar a la carpeta principal del proyecto,
+
+* Correr el comando
+```
+docker compose up
+```
+(esto ejecutara docker creando los contenedores necesarios)
+
+## Ejecutando el servicio ⚙️
+
+### Create a new user (server response: 201)
+```shell script
+curl -X POST \
+  http://localhost:8080/register \
+  -d '{
+	"username": "usuario"
+}'
+```
+* Para crear un usuario Admin debe enviar el campo 'isAdmin' con valor true
+
+### Create a new event (server response: 201)
+*Este ejemplo crea un evento (con campos minimos) de estado publicado
+```shell script
+curl -X POST \
+  http://localhost:8080/event \
+  -d '{
+	"title": "Evento"
+  "date": "2023-03-30T18:30:20-03:00"
+  "description_shot": "Creacion de evento"
+  "state": "publicado"
+}'
 ```
 
-## Ejecutando las pruebas ⚙️
+### Get User (Obtiene user por ID)
+```shell script
+curl -X GET \
+  http://localhost:8080/user/ID-user
+```
 
-Lista de endpoint para Users
-```
+### Get Event (Obtiene evento por ID)
+```shell script
+curl -X GET \
+  http://localhost:8080/user/ID-user
 ```
 
-Lista de endpoint para Events
-```
-```
 
 ## Construido con 🛠️
 
 _Herramientas que se utilizo para crear el proyecto_
+* [GinGonic](https://github.com/gin-gonic/gin)
+* GoDoc
+* Client Rest:[Postman](https://www.postman.com/)
+
 
 ## Autor ✒️
 
 * **Bruno Sebastian Riotorto**
-- *Trabajo* - [Bruno](https://github.com/brunoseba/event-api)
