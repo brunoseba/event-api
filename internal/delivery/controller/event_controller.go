@@ -124,11 +124,7 @@ func (ec *EventController) InscriptionUserEvent(c *gin.Context) {
 		return
 	}
 
-	err = ec.eventUseCase.AddEventToUser(eventuser.UserId, eventuser.EventId)
-	if err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"message": "Failed register to event"})
-		return
-	}
+	ec.eventUseCase.AddEventToUser(eventuser.UserId, eventuser.EventId)
 
 	c.JSON(http.StatusOK, gin.H{})
 }

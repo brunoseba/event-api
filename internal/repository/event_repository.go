@@ -167,10 +167,8 @@ func (er *EventRepositoryImp) SubscriteToEvent(userID string, eventID string) er
 	filter := bson.M{"_id": eventOID}
 	update := bson.M{"$addToSet": bson.M{"SubscribersRef": userOID}}
 
-	_, err := er.eventCollection.UpdateOne(er.ctx, filter, update)
-	if err != nil {
-		return err
-	}
+	er.eventCollection.UpdateOne(er.ctx, filter, update)
+
 	return nil
 }
 
