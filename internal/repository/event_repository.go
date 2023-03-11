@@ -81,7 +81,7 @@ func (er *EventRepositoryImp) GetEventByDate(dateStart, dateEnd time.Time, state
 	cursor, err := er.eventCollection.Find(er.ctx, filter)
 
 	if err != nil {
-		return nil, errors.New("aca reento")
+		return nil, err
 	}
 	defer cursor.Close(er.ctx)
 
@@ -105,7 +105,7 @@ func (er *EventRepositoryImp) GetEventState(state string) ([]*entity.EventRespon
 	cursor, err := er.eventCollection.Find(er.ctx, filter)
 
 	if err != nil {
-		return nil, errors.New("aca reento")
+		return nil, err
 	}
 	defer cursor.Close(er.ctx)
 
