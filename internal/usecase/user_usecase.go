@@ -1,7 +1,6 @@
 package usecase
 
 import (
-	"log"
 	"time"
 
 	"github.com/brunoseba/event-api/internal/entity"
@@ -52,7 +51,6 @@ func (us *UserUseCase) CreateUserService(user *entity.User) (*entity.UserRespons
 // busca usr por nickname
 func (us *UserUseCase) GetUser(name string) (*entity.UserResponse, error) {
 
-	log.Printf("esto es name en service: %v", name)
 	user, err := us.userRepo.GetUserRepo(name)
 	if err != nil {
 		return nil, err

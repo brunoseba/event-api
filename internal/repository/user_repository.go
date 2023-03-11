@@ -26,7 +26,7 @@ func (repo *UserRepositoryImp) CreateUser(user *entity.User) (*entity.UserRespon
 		if er, ok := err.(mongo.WriteException); ok && er.WriteErrors[0].Code == 11000 {
 			return nil, errors.New("the user is already exist")
 		}
-		return nil, errors.New("nose que paso")
+		return nil, err
 	}
 	var newUser *entity.UserResponse
 
