@@ -3,7 +3,6 @@ package controller
 import (
 	"encoding/json"
 	"io"
-	"log"
 	"net/http"
 	"strings"
 
@@ -136,7 +135,6 @@ func (ec *EventController) GetListEventsUserController(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"message": "id doesn't have the correct length"})
 	}
 	events, err := ec.eventUseCase.GetListEventUser(userId)
-	log.Printf("esto es lista de eventos en controllerEvent: %v", events)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"message": "Failed to get events"})
 		return

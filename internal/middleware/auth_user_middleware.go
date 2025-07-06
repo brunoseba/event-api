@@ -2,7 +2,6 @@ package middleware
 
 import (
 	"errors"
-	"log"
 	"net/http"
 	"strings"
 
@@ -42,7 +41,6 @@ func AuthUser() gin.HandlerFunc {
 			return
 		}
 		enabled := claim["userType"].(bool)
-		log.Printf("ESto es enabled en AuthUser: %v", enabled)
 
 		if !claim["userType"].(bool) {
 			c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{"status": 401, "message": "Acceso denegado"})
